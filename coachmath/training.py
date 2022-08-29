@@ -91,9 +91,10 @@ class Training():
             self._display("What do you want to learn?")
             try:
                 self.study_id = str(self._display(self._studies(), user_input=True, html_tag="strong"))
-            except Exception:
+            except Exception as err:
                 self._display("Try again.")
-                self._select()
+                #self._select()
+                print(err)
         
         if self.study_id not in self._study_directory():
             self._select()
