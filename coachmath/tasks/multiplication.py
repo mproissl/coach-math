@@ -23,8 +23,8 @@ def basic_integer_multiplication(max_product: int,
             
     # Randomize
     if max_tasks < 0:
-        _shuffle(self.tasks)
+        _shuffle(tasks)
     else:
-        tasks = _sample(self.tasks, self.max_tasks)
+        tasks = _sample(tasks, max_tasks)
 
     return tasks
