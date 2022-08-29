@@ -131,7 +131,7 @@ class Training():
         # Load
         config = self._study_directory(self.study_id)
         _method = getattr(_import(config["path"]), config["task"])
-        print(method)
+        print(_method)
         self.tasks = _method(**config["default_params"])
 
         # Start tasks
