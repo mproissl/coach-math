@@ -130,7 +130,9 @@ class Training():
 
         # Load
         config = self._study_directory[self.study_id]
-        self.tasks = getattr(_import(config["path"]), config["task"])(**config["default_params"])
+        _method = getattr(_import(config["path"]), config["task"])
+        print(method)
+        self.tasks = _method(**config["default_params"])
 
         # Start tasks
         for n_iter in range(1, self.repetitions+1):
