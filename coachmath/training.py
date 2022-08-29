@@ -191,7 +191,7 @@ class Training():
         _show = "<ul>"
         for item in self.report:
             _show += f"<li><strong>{item}:</strong> {self.report[item]}</li>"
-            _show += "</ul>"
+        _show += "</ul>"
         self._display(_show, html_tag= "p")
 
     def _display(self,
@@ -222,7 +222,7 @@ class Training():
         export_dt = _dt.now()
         export = {
             "timestamp": _dt.timestamp(export_dt),
-            "datetime:": export_dt.strftime("%Y%m%d%H%M"),
+            "datetime": export_dt.strftime("%Y%m%d%H%M"),
             "who": self.who,
             "study_id": self.study_id,
             "study_name": self._study_directory(self.study_id),
