@@ -107,7 +107,7 @@ class Training():
         directory = {
             "1": {
                 "desc": "Multiplication up to 100",
-                "path": "coach-math.tasks.multiplication",
+                "path": "coachmath.tasks.multiplication",
                 "task": "basic_integer_multiplication",
                 "default_params": {
                     "max_product": 100,
@@ -116,7 +116,7 @@ class Training():
             },
             "2": {
                 "desc": "Division up to 100",
-                "path": "coach-math.tasks.multiplication", # TODO
+                "path": "coachmath.tasks.multiplication", # TODO
                 "task": "basic_integer_multiplication".  # TODO
             }
         }
