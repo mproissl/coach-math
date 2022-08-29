@@ -129,7 +129,7 @@ class Training():
         self.start_dt = _dt.now()
 
         # Load
-        config = self._study_directory[self.study_id]
+        config = self._study_directory(self.study_id)
         _method = getattr(_import(config["path"]), config["task"])
         print(method)
         self.tasks = _method(**config["default_params"])
