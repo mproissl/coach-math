@@ -110,13 +110,19 @@ class Training():
                 "task": "basic_integer_multiplication",
                 "default_params": {
                     "max_product": 100,
+                    "multiplier_max": 5
                     "max_tasks": self.max_tasks
                 }
             },
             "2": {
                 "desc": "Division up to 100",
-                "path": "coachmath.tasks.multiplication", # TODO
-                "task": "basic_integer_multiplication",  # TODO
+                "path": "coachmath.tasks.division",
+                "task": "basic_integer_division",
+                "default_params": {
+                    "max_dividend": 90,
+                    "max_divisor": 12,
+                    "max_tasks": self.max_tasks
+                }
             }
         }
         if study_id is not None:
