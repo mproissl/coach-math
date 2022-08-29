@@ -123,7 +123,7 @@ class Training():
         if study_id is not None:
             return directory[study_id]
         else:
-            directory
+            return directory
     
     def _run(self, option):
         # Start
@@ -194,10 +194,10 @@ class Training():
         self._display(_show, html_tag= "p")
 
     def _display(self,
-                msg: str,
-                user_input: bool = False,
-                html_tag: str = "h1",
-                skip_translate = False) -> any:
+                 msg: str,
+                 user_input: bool = False,
+                 html_tag: str = "h1",
+                 skip_translate = False) -> any:
         
         display(HTML('<{}>{}</{}>'.format(html_tag,
                                           self._get_text(msg, skip_translate),
