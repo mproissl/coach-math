@@ -1,6 +1,6 @@
 from setuptools import setup
 setup(
-    name='coach-math'
+    name='coach-math',
     version='0.0.1',
     author='Manuel Proissl',
     description='A simple Python-based coach to solve problems in mathematics.',
