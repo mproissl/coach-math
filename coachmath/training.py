@@ -22,7 +22,7 @@
 """Main training class for Jupyter Notebooks."""
 
 # Dependencies
-from datetime import datetime as dt
+from datetime import datetime as _dt
 from IPython.display import display, HTML
 from google_trans_new import google_translator as translator
 from importlib import import_module as _import
