@@ -117,7 +117,7 @@ class Training():
             "2": {
                 "desc": "Division up to 100",
                 "path": "coachmath.tasks.multiplication", # TODO
-                "task": "basic_integer_multiplication".  # TODO
+                "task": "basic_integer_multiplication",  # TODO
             }
         }
         if study_id is not None:
