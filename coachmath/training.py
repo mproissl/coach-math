@@ -110,7 +110,7 @@ class Training():
                 "task": "basic_integer_multiplication",
                 "default_params": {
                     "max_product": 100,
-                    "multiplier_max": 5
+                    "multiplier_max": 5,
                     "max_tasks": self.max_tasks
                 }
             },
