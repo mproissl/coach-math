@@ -95,7 +95,7 @@ class Training():
                 self._display("Try again.")
                 self._select()
         
-        if self.study_id not in self._study_directory()
+        if self.study_id not in self._study_directory():
             self._select()
 
     def _studies(self) -> str:
