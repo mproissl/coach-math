@@ -78,13 +78,13 @@ class Training():
         self._select()
 
         # Run
-        #self._run(self.study_id)
+        self._run(self.study_id)
 
         # Show results
-        #self._eval()
+        self._eval()
 
         # Save
-        #self._save()
+        self._save()
     
     def _select(self):
         if self.study_id is None:
