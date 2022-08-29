@@ -135,9 +135,12 @@ class Training():
         self.start_dt = _dt.now()
 
         # Load
-        config = self._study_directory(self.study_id)
+        if self.study_params is None:
+            config = self._study_directory(self.study_id)
+        else:
+            config = self.study_params
+        
         _method = getattr(_import(config["path"]), config["task"])
-        print(_method)
         self.tasks = _method(**config["default_params"])
 
         # Start tasks
