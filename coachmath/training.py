@@ -78,13 +78,13 @@ class Training():
         self._select()
 
         # Run
-        self._run(self.study_id)
+        #self._run(self.study_id)
 
         # Show results
-        self._eval()
+        #self._eval()
 
         # Save
-        self._save()
+        #self._save()
     
     def _select(self):
         if self.study_id is None:
@@ -93,8 +93,7 @@ class Training():
                 self.study_id = str(self._display(self._studies(), user_input=True, html_tag="strong"))
             except Exception as err:
                 self._display("Try again.")
-                #self._select()
-                print(err)
+                self._select()
         
         if self.study_id not in self._study_directory():
             self._select()
@@ -103,8 +102,7 @@ class Training():
         li = "".join([f"<li>[{k}]: {n['desc']}</li>" for k,n in self._study_directory().items()])
         return f"<ul>{li}</ul>"
     
-    @staticmethod
-    def _study_directory(study_id: str = None):
+    def _study_directory(self, study_id: str = None):
         directory = {
             "1": {
                 "desc": "Multiplication up to 100",
