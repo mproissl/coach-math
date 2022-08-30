@@ -24,7 +24,7 @@
 # Dependencies
 from datetime import datetime as _dt
 from IPython.display import display, HTML
-from google_trans_new import google_translator as translator
+from googletrans import Translator
 from importlib import import_module as _import
 from time import sleep
 import json
@@ -58,7 +58,7 @@ class Training():
         self.repetitions = repetitions
         self.language = language
         self.translate = translate
-        self.translator = translator()
+        self.translator = Translator()
         self.max_tasks = max_tasks
 
         # Init defaults
@@ -228,10 +228,9 @@ class Training():
     def _get_text(self, msg: str, skip_translate: bool = False) -> str:
         if (self.language != "en" or self.translate or not skip_translate):
             try:
-                return self.translator.translate(msg, lang_tgt=self.language)
+                return self.translator.translate(msg, dest=self.language).text
             except Exception as err:
                 self.translate = False
-                print(err)
                 pass
         
         return msg
