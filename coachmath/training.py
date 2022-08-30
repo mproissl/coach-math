@@ -201,7 +201,7 @@ class Training():
         if len(wrong) > 0:
             wrong = sorted(wrong, key=lambda d: d["duration"], reverse=True)
             title = "Top 5 Wrong" if len(wrong) >= 5 else f"Top {len(wrong)} Wrong"
-            top = [ f"{task['task']} {task['answer']}" for idx, task in enumerate(wrong) if idx < 5 ]
+            top = [ f"{task['task']} {task['answer']} (correct = {task['result']})" for idx, task in enumerate(wrong) if idx < 5 ]
             self.report[self._get_text(title)] = "<br/>"
             self.report[self._get_text(title)] += "<br/>".join(top)
 
