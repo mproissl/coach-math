@@ -229,8 +229,9 @@ class Training():
         if (self.language != "en" or self.translate or not skip_translate):
             try:
                 return _translator.translate(msg, lang_tgt=self.language)
-            except Exception:
+            except Exception as err:
                 self.translate = False
+                print(err)
                 pass
         
         return msg
