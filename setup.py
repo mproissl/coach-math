@@ -6,5 +6,5 @@ setup(
     description='A simple Python-based coach to solve problems in mathematics.',
     url='https://github.com/mproissl/coach-math',
     python_requires='>=3.6',
-    install_requires=['pyyaml', 'google_trans_new'],
+    install_requires=['pyyaml', 'googletrans==4.0.0-rc1'],
 )
