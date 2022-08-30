@@ -1,19 +1,23 @@
 from random import randint as _randint, shuffle as _shuffle, sample as _sample
 
-def basic_integer_multiplication(max_product: int,
+def basic_integer_multiplication(result_max: int,
                                  multiplier_max: int = -1,
                                  max_tasks: int = -1) -> dict:
     # Init
     tasks = []
 
     # Generate
-    for xy in range(max_product, 1, -1):
-        for x in range(2, max_product):
+    for xy in range(result_max, 1, -1):
+        for x in range(2, result_max):
             if xy % x == 0:
                 y = int(xy / x)
 
                 # Limit multiplier
-                if y > multiplier_max:
+                if (multiplier_max > 0 and y > multiplier_max):
+                    continue
+                
+                # Exclude simple case
+                if (x == 1 or y == 1):
                     continue
 
                 # Random swap of x and y

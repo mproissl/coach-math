@@ -109,7 +109,7 @@ class Training():
                 "path": "coachmath.tasks.multiplication",
                 "task": "basic_integer_multiplication",
                 "default_params": {
-                    "max_product": 100,
+                    "result_max": 100,
                     "multiplier_max": 5,
                     "max_tasks": self.max_tasks
                 }
@@ -119,8 +119,8 @@ class Training():
                 "path": "coachmath.tasks.division",
                 "task": "basic_integer_division",
                 "default_params": {
-                    "max_dividend": 90,
-                    "max_divisor": 12,
+                    "dividend_max": 100,
+                    "divisor_max": 12,
                     "max_tasks": self.max_tasks
                 }
             }
@@ -191,17 +191,25 @@ class Training():
         self.report[self._get_text("Duration to Complete (Minutes)")] = t
 
         # Time for tasks
-        tt = [ (task["end_dt"] - task["start_dt"]).seconds for task in self.tasks ]
+        tt = [ task["duration"] for task in self.tasks ]
         self.report[self._get_text("Fastest Time to Answer (Seconds)")] = min(tt)
         self.report[self._get_text("Slowest Time to Answer (Seconds)")] = max(tt)
         self.report[self._get_text("Average Time Answer (Seconds)")] = int(sum(tt)/len(tt))
+
+        # Wrong timely answers
+        wrong = [ task for task in self.tasks if not task["correct"] ]
+        if len(wrong) > 0:
+            wrong = sorted(w, key=lambda d: d["duration"], reverse=True)
+            title = "Top 5 Wrong" if len(wrong) >= 5 else f"Top {len(wrong)} Wrong"
+            top = [ f"{task['task']} {task['answer']}" for idx, task in enumerate(wrong) if idx < 5 ]
+            self.report[self._get_text(title)] = "<br/>".join(top)
 
         # Display
         _show = "<ul>"
         for item in self.report:
             _show += f"<li><strong>{item}:</strong> {self.report[item]}</li>"
         _show += "</ul>"
-        self._display(_show, html_tag= "p")
+        self._display(_show, html_tag= "div")
 
     def _display(self,
                  msg: str,
