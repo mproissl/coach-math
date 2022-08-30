@@ -228,7 +228,7 @@ class Training():
     def _get_text(self, msg: str, skip_translate: bool = False) -> str:
         if (self.language != "en" or self.translate or not skip_translate):
             try:
-                return _translator.translate(msg, lang_tgt=self.language)
+                return self.translator.translate(msg, lang_tgt=self.language)
             except Exception as err:
                 self.translate = False
                 print(err)
