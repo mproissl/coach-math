@@ -199,7 +199,7 @@ class Training():
         # Wrong timely answers
         wrong = [ task for task in self.tasks if not task["correct"] ]
         if len(wrong) > 0:
-            wrong = sorted(w, key=lambda d: d["duration"], reverse=True)
+            wrong = sorted(wrong, key=lambda d: d["duration"], reverse=True)
             title = "Top 5 Wrong" if len(wrong) >= 5 else f"Top {len(wrong)} Wrong"
             top = [ f"{task['task']} {task['answer']}" for idx, task in enumerate(wrong) if idx < 5 ]
             self.report[self._get_text(title)] = "<br/>".join(top)
